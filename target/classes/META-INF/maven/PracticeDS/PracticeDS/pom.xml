@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>PracticeDS</groupId>
   <artifactId>PracticeDS</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>AkJar</version>
   <name>DSMaven</name>
   <build>
     <sourceDirectory>src</sourceDirectory>
