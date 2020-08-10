@@ -31,3 +31,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+        
+    # Changing the Target of the Maven Jar Path ....
+    - name: Moving the Jar to different location
+      run: pwd
