@@ -7,6 +7,7 @@ pipeline {
         stage('Non-Parallel Stage') {
             steps {
                 echo "Executing this stage first Abhishek"
+                build( "GitHub Compile and Run" )
             }
         }
     }
