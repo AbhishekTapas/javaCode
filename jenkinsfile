@@ -2,12 +2,33 @@
 
 // Jenkinsfile (Declarative Pipeline)
 pipeline {
-  agent any
-  stages {
-    stage('Stage 1') {
-      steps {
-        echo 'Hello world!'
-      }
+    agent any
+    stages {
+        stage('Non-Parallel Stage') {
+            steps {
+                echo "Executing this stage first Abhishek"
+            }
+        }
+        stage('Parallel Stage') {
+            parallel {
+                stage('Parallel Test 1') {
+                    steps {
+                        echo "Here trigger job: jenkins_job_1. Triggered at time:"
+                        sh(script: "date -u")
+                        build(job: "GitHub Compile and Run")
+                    }
+                }
+                stage('Parallel Test 2') {
+                    steps {
+                        echo "Here trigger job: jenkins_job_2. Triggered at time:"
+                        sh(script: "date -u")
+                        build(job: "jenkins_job_2")
+                        echo "Here trigger job: jenkins_job_3. Triggered at time:"
+                        sh(script: """date -u""")
+                        build(job: "Gv1")
+                    }
+                }
+            }
+        }
     }
-  }
 }
