@@ -4,10 +4,32 @@
 pipeline {
     agent any
     stages {
-        stage('Non-Parallel Stage') {
+        stage('Intro') {
             steps {
-                echo "Executing this stage first Abhishek"
-                build( "GitHub Compile and Run" )
+                echo "Starting Build For Abhishek Java Application"
+            }
+        }
+        stage('Compile') {
+            steps {
+                echo "Compiling the Code"
+                build( "CompileMe" )
+            }
+        }
+        stage('Test'){
+            steps {
+                echo "Testing the Code"
+                build( "ExecuteMe" )
+            }
+        }
+        stage('Compile And Run') {
+            steps {
+                echo "Compiling and Creating the jar the Code"
+                build( "ExecuteMe" )
+            }
+        }
+        stage('Deploy'){
+            steps {
+                echo "Will Deploy the Code"
             }
         }
     }
