@@ -12,7 +12,8 @@ pipeline {
         stage('Compile') {
             steps {
                 echo "Compiling the Code"
-                build( "CompileMe" )
+                def compileJob = build( "CompileMe" )
+                echo "My CompileMe Console" compileJob.getRawBuild().getLog()
             }
         }
         stage('Test'){
